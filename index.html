@@ -1,8 +1,91 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>CBS</title>
-  </head>
-  <body>
-    <p>test</p>
-  </body>
+<head>
+<title>Animated Website</title>
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.section {
+  position: relative;
+  padding: 100px;
+  text-align: center;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1842.8px;
+  height: 599.5px;
+  background-color: rgba(0, 0, 255, 0.5); /* Adjust opacity as needed */
+}
+
+.image-container {
+  display: flex;
+  align-items: center; /* Vertically center image */
+  justify-content: space-between 80px; /* Create gap and move image left */
+  margin-top: 30px; /* Adjust for spacing */
+}
+
+.image-container img {
+  width: 528.7px;
+  height: 484.4px;
+  z-index: 1; /* Bring image to front */
+  margin-left: -50px; /* Additional left movement */
+  margin-top: -70px;
+}
+
+.text-container {
+  max-width: 50%; /* Adjust for text width */
+  text-align: left; /* Center text left */
+}
+
+.section h1 {
+  font-size: 4em; /* Slightly larger text */
+  animation: slide-in-left 2s ease-in-out;
+}
+
+.section p {
+  font-size: 2em; /* Slightly larger text */
+  animation: slide-in-right 2s ease-in-out;
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+</style>
+</head>
+<body>
+<center>
+  <h1>CBS</h1>
+  <h1>Competitive Bottle Sliding</h1>
+</center>
+<div style="height: 100vh;"></div>
+
+<section class="section">
+  <div class="image-container">
+    <img src="test.jpg" alt="Image description">
+    <div class="text-container">
+      <h1>The Wasingtons</h1>
+      <p>Managed by Wastina Biggerstaff</p>
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll animation code remains the same
+// ...
+</script>
+</body>
 </html>
