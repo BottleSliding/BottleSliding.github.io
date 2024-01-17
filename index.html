@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <title>CBS</title>
 <style>
 body {
@@ -49,9 +51,15 @@ body {
 
 .text-group {
   opacity: 0;
-  transform: translateX(/* adjust direction as needed */);
+  transform: translateX(-100%);
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
+
+.text-group.slide-in-left-from-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 /* Update animation classes for text groups */
 @keyframes slide-in-left-from-left {
@@ -220,11 +228,11 @@ body {
 </center>
 <div style="height: 100vh;"></div>
 
-<section class="section">
+<section class="section left-aligned">
   <div class="image-container">
     <img src="wasington.png" alt="Image description">
     <div class="text-container">
-      <div class="text-group">
+    <div class="text-group">
       <h1>The Wasingtons</h1>
       <p>Managed by Wastina Biggerstaff</p>
     </div>
@@ -238,25 +246,26 @@ body {
   <div class="image-container">
     <img src="quacker.png" alt="Image description">
     <div class="text-container">
+    <div class="text-group">
       <h1>The Quackers</h1>
       <p>Managed by Klayton Hamilton</p>
     </div>
   </div>
 </section>
 <script>
-const sections = document.querySelectorAll('.section');
+ $(document).ready(function () {
+    $(window).scroll(function () {
+      $('.text-group').each(function () {
+        const position = $(this).offset().top;
+        const windowHeight = $(window).height();
+        const scroll = $(window).scrollTop();
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelector('.text-group').classList.add('slide-in-left-from-left');
- 
-// Adjust animation class as needed
-    }
+        if (scroll > position - windowHeight + 100) {
+          $(this).addClass('slide-in-left-from-left');
+        }
+      });
+    });
   });
-});
-
-sections.forEach(section => observer.observe(section));
 </script>
 </body>
 </html>
