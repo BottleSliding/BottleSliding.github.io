@@ -205,10 +205,12 @@ body {
   <div class="image-container">
     <img src="wasington.png" alt="Image description">
     <div class="text-container">
+      <div class="text-group">
       <h1>The Wasingtons</h1>
       <p>Managed by Wastina Biggerstaff</p>
     </div>
   </div>
+</div>
 </section>
 
 <div style="height: 100vh;"></div>
@@ -223,8 +225,19 @@ body {
   </div>
 </section>
 <script>
-// Scroll animation code remains the same
-// ...
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelector('.text-group').classList.add('slide-in-left-from-left');
+ 
+// Adjust animation class as needed
+    }
+  });
+});
+
+sections.forEach(section => observer.observe(section));
 </script>
 </body>
 </html>
