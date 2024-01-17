@@ -75,6 +75,26 @@ body {
     font-size: 70px;
     font-weight: normal;
 }
+.section.right-aligned {
+  /* Position elements to the right */
+  text-align: right;
+}
+
+.section.right-aligned .image-container {
+  /* Reverse the order of elements */
+  flex-direction: row-reverse;
+}
+
+.section.right-aligned .image-container img {
+  /* Adjust margin for spacing */
+  margin-left: 20px; /* Adjust as needed */
+}
+
+.section.right-aligned .text-container {
+  /* Align text to the right */
+  text-align: right;
+}
+
 body {
             font-family: "Poppins", sans-serif;
             background-image: url("/desktop-wallpaper-zoom-background-nomad®-dark-website.png");
@@ -193,7 +213,7 @@ body {
 
 <div style="height: 100vh;"></div>
 
-<section class="section left-aligned">
+<section class="section right-aligned">
   <div class="image-container">
     <img src="quacker.png" alt="Image description">
     <div class="text-container">
