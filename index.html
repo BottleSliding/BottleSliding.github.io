@@ -41,8 +41,27 @@ body {
 }
 
 .text-container {
-  max-width: 50%; /* Adjust for text width */
-  text-align: left; /* Center text left */
+  /* Group text elements together */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center text within container */
+}
+
+.text-group {
+  opacity: 0;
+  transform: translateX(/* adjust direction as needed */);
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+}
+
+/* Update animation classes for text groups */
+@keyframes slide-in-left-from-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-right-from-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 .section h1 {
